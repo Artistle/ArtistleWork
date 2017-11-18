@@ -10,7 +10,7 @@ import com.Artistle.retrofitrxjava.adapter.UserAdapter;
 import com.Artistle.retrofitrxjava.model.UserModel;
 import com.Artistle.retrofitrxjava.network.UserRetrofit;
 import com.jakewharton.retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
-import com.learn2crack.retrofitrxjava.R;
+import com.Artistle.retrofitrxjava.R;
 
 import java.util.ArrayList;
 import java.util.Collections;

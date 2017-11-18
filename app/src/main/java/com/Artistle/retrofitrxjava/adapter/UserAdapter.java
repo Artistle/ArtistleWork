@@ -11,7 +11,7 @@ import android.widget.TextView;
 
 import com.Artistle.retrofitrxjava.Activity.InfoUserActivity;
 import com.Artistle.retrofitrxjava.Data.DBHelper;
-import com.learn2crack.retrofitrxjava.R;
+import com.Artistle.retrofitrxjava.R;
 import com.Artistle.retrofitrxjava.model.UserModel;
 
 import java.util.ArrayList;

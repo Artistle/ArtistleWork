@@ -7,7 +7,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.Artistle.retrofitrxjava.model.InfoModel;
-import com.learn2crack.retrofitrxjava.R;
+import com.Artistle.retrofitrxjava.R;
 
 import java.util.ArrayList;
 

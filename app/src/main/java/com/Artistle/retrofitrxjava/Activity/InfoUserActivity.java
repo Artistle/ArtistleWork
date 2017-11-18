@@ -8,7 +8,7 @@ import android.support.v7.widget.RecyclerView;
 import android.widget.Toast;
 
 import com.jakewharton.retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
-import com.learn2crack.retrofitrxjava.R;
+import com.Artistle.retrofitrxjava.R;
 import com.Artistle.retrofitrxjava.adapter.InfoAdapter;
 import com.Artistle.retrofitrxjava.model.InfoModel;
 import com.Artistle.retrofitrxjava.network.InfoRetrofit;
