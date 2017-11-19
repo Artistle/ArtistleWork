@@ -24,6 +24,7 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.ViewHolder> {
         userListModels = androidList;
     }
 
+
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
 
@@ -33,12 +34,7 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.ViewHolder> {
 
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
-        ContentValues contentValues = new ContentValues();
         UserModel user = userListModels.get(position);
-
-        contentValues.put(DBHelper.KEY_NAME, user.getName());
-        contentValues.put(DBHelper.KEY_MAIL,user.getEmail());
-        contentValues.put(DBHelper.KEY_COMPANY, user.getCompany().getName_company());
 
         holder.userName.setText(user.getName());
         holder.userMail.setText(user.getEmail());

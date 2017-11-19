@@ -1,11 +1,15 @@
 package com.Artistle.retrofitrxjava;
 
+import android.content.ContentValues;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.widget.Toast;
 
+import com.Artistle.retrofitrxjava.Data.DBHelper;
 import com.Artistle.retrofitrxjava.adapter.UserAdapter;
 import com.Artistle.retrofitrxjava.model.UserModel;
 import com.Artistle.retrofitrxjava.network.UserRetrofit;
@@ -29,6 +33,10 @@ public class MainActivity extends AppCompatActivity {
     private CompositeDisposable compositeDisposable;
     private UserAdapter adapter;
     private ArrayList<UserModel> InfoListModels;
+    private DBHelper db;
+    private UserModel userModel;
+    private SQLiteDatabase database;
+    private ContentValues contentValues;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,6 +46,12 @@ public class MainActivity extends AppCompatActivity {
         InfoListModels = new ArrayList<UserModel>();
 
         compositeDisposable = new CompositeDisposable();
+
+        db = new DBHelper(this);
+        database = db.getWritableDatabase();
+
+        database.insert(DBHelper.TABLE_CONTACTS, null, contentValues);
+
         initRecyclerView();
         loadJSON();
     }
@@ -69,19 +83,23 @@ public class MainActivity extends AppCompatActivity {
 
         InfoListModels = new ArrayList<UserModel>();
         adapter = new UserAdapter(InfoListModels);
+        contentValues = new ContentValues();
+
         recyclerView.setAdapter(adapter);
         InfoListModels.addAll(userList);
+
         Collections.sort(InfoListModels, new Comparator<UserModel>() {
             @Override
             public int compare(UserModel o1, UserModel o2) {
                 return o1.getName().compareTo(o2.getName());
             }
         });
+        contentValues.put(DBHelper.KEY_NAME, userModel.getName());
+        contentValues.put(DBHelper.KEY_COMPANY, userModel.getCompany().getName_company());
+        contentValues.put(DBHelper.KEY_MAIL, userModel.getEmail());
     }
 
     private void handleError(Throwable error) {
-
-        Toast.makeText(this, "Error "+error.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
     }
 
     @Override
